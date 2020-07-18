@@ -7,4 +7,4 @@
 	import ProductsTemplate from '.pages/ProductsTemplate.svelte' 
 </script>
 
-	<h1>Hello!</h1>
+	<h1>Hola!</h1>
