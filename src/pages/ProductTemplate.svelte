@@ -1,0 +1,1 @@
+<h1>Welcome to ProductTemplate page</h1>

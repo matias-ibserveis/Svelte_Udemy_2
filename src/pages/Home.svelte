@@ -1,0 +1,1 @@
+<h1>Welcome to HOME page</h1>
