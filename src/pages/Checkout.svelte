@@ -1,1 +1,1 @@
-<h1>Welcome Checlout page</h1>
+<h1>welcome to checkout page</h1>

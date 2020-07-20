@@ -1,10 +1,11 @@
 <script>
   import Hero from "../components/Hero.svelte";
   import { link } from "svelte-routing";
-  // feactured products
-  
+  // featured products
+  import Feactured from "../components/Products/Feactured.svelte"
 </script>
 
 <Hero>
-  <a use:link href="/products" class="btn btn-prmary btn-hero">Shop now</a>
+  <a href="/products" class="btn btn-primary btn-hero" use:link>shop now</a>
 </Hero>
+<Feactured title="Productos Descatados"></Feactured>
