@@ -2,11 +2,12 @@
   import { link } from "svelte-routing";
   import links from "../../constants/links.js";
   import globalStore from "../../stores/globalStore";
+  import { fly, fade } from "svelte/transition";
   let closeSidebar = globalStore.toggleItem;
 </script>
 
-<div class="sidebar-container">
-  <div class="sidebar">
+<div class="sidebar-container" transition:fly={{ x: -1000 }}>
+  <div class="sidebar" transition:fade={{ delay: 300 }}>
     <div class="sidebar-header">
       <button
         class="btn-close"

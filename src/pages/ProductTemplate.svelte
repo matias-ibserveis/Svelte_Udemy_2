@@ -6,6 +6,8 @@
   import Loading from "../components/Loading.svelte";
   import { link } from "svelte-routing";
 
+  import globalStore from "../stores/globalStore";
+
   $: product = $products.find((item) => item.id === parseInt(id));
 </script>
 
@@ -29,7 +31,7 @@
         <button
           class="btn btn-primary btn-block"
           on:click={() => {
-            console.log('Agregado al carrito');
+            globalStore.toggleItem('cart', true);
           }}>
           Agregar al carrito
         </button>
@@ -37,4 +39,3 @@
     </div>
   </section>
 {/if}
-

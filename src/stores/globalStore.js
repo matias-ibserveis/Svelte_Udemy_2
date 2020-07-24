@@ -4,7 +4,7 @@ import {
 
 const globalStore = writable({
   sidebar: false,
-  cart: false,
+  cart: true,
   alert: false
 })
 
