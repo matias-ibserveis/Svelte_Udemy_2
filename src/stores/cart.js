@@ -13,14 +13,51 @@ export const cartTotal = derived(cart, ($cart) => {
   return total.toFixed(2)
 })
 // local function
-const remove = (id, items) =>{
-  items.filter(item => item.id !== id)
+const remove = (id, items) => {
+  return items.filter(item => item.id !== id)
+}
+const toggleAmount = (id, items, action) => {
+  return items.map(item => {
+    let newAmount;
+    if (action === "inc") {
+      newAmount = item.amount + 1
+    } else if (action === "dec") {
+      newAmount = item.amount - 1
+    } else {
+      newAmount = item.amount
+    }
+    return item.id === id ? {
+      ...item,
+      amount: newAmount
+    } : {
+      ...item
+    }
+  })
 }
 // global function
 export const removeItem = id => {
   cart.update(storeValue => {
     return remove(id, storeValue)
   })
+}
+export const increaseAmount = id => {
+  cart.update(storeValue => {
+    return toggleAmount(id, storeValue, "inc")
+  })
+}
+export const decreaseAmount = (id, amount) => {
+  cart.update(storeValue => {
+    let cart;
+    if (amount === 1) {
+      cart = remove(id, storeValue);
+    } else {
+      cart = toggleAmount(id, storeValue, "dec");
+    }
+    return [...cart];
+  });
+};
+export const addtoCart = product =>{
+  console.log(product)
 }
 // localstorage
 export default cart
