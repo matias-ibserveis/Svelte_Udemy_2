@@ -19,8 +19,6 @@
     <Link to="/products/5">Prod 5</Link>
     <Link to="/products/7">Pro 7</Link>
   </nav>
-
-
 	<Route path="/" component={Home} />
 	<Route path="/about" component={About} />
 	<Route path="/login" component={Login} />
