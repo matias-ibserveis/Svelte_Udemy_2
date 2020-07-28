@@ -20,7 +20,6 @@
     <a href="/" use:link class="nav-logo">
       <img src="/assets/images/logo.svg" alt="" class="logo" />
     </a>
-    <button>cart</button>
     <CartButton />
   </div>
 </nav>

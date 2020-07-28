@@ -4,7 +4,7 @@
   import { link } from "svelte-routing";
   //item list
   import ItemsList from "./ItemsList.svelte";
-  let user = false;
+  import user from "../../stores/user"
 </script>
 
 <div class="cart-overlay" transition:blur>
@@ -25,7 +25,7 @@
       <ItemsList />
 
       <div class="cart-footer">
-        {#if user}
+        {#if $user.jwt}
           <a
             href="/chekout"
             use:link

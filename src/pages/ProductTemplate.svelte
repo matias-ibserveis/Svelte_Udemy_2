@@ -33,7 +33,7 @@
         <button
           class="btn btn-primary btn-block"
           on:click={() => {
-            addToCart(product);
+            addToCart(id, product);
             globalStore.toggleItem('cart', true);
           }}>
           Agregar al carrito
