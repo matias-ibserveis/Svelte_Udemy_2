@@ -9,7 +9,6 @@
     globalStore.toggleItem("sidebar", false);
   }
 
-  // REVISAR PORQUE NO FUNCIONA LO DE ARRIBA;
 </script>
 
 <!-- OBTENEMOS EL ANCHO DE LA VENTANA (BIND) -->
