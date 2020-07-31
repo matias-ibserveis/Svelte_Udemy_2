@@ -1,5 +1,6 @@
 import axios from "axios"
 import url from "./URL"
+import setupUser from "./setupUser"
 
 async function registerUser({
   email,
@@ -16,7 +17,7 @@ async function registerUser({
   })
 
   if(response){
-
+    setupUser(response)
   }
   return response
 }

@@ -1,14 +1,17 @@
 <script>
   import loginUser from "../strapi/loginUser";
   import registerUser from "../strapi/registerUser";
+  import { navigate } from "svelte-routing";
+  import globalStore from "../stores/globalStore"
 
   let email = "";
   let password = "";
   let username = "default username";
   let isMember = true;
-  $: isEmpty = !email || !password || !username;
+  $: isEmpty = !email || !password || !username || $globalStore.alert;
 
   function toggleMember() {
+    globalStore.toggleItem("alert", true, `Cargado datos....`)
     isMember = !isMember;
     if (!isMember) {
       username = "";
@@ -19,13 +22,17 @@
   async function handleSubmit() {
     let user;
     if (isMember) {
-      user = await loginUser({email, password});
-      console.log(user)
+      user = await loginUser({ email, password });
+      console.log(user);
     } else {
-      user = await registerUser({email, password, username});
+      user = await registerUser({ email, password, username });
     }
-    if(user){
-      
+    if (user) {
+      navigate(`/products`)
+      globalStore.toggleItem("alert", true, `Bienvenido ${username}`)
+      return;
+    }else{
+      globalStore.toggleItem("alert", true, `No encontramos esa cuenta...`, true)
     }
   }
 </script>

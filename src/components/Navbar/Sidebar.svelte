@@ -4,7 +4,10 @@
   import globalStore from "../../stores/globalStore";
   import { fly, fade } from "svelte/transition";
   import LoginLink from "../LoginLink.svelte";
+  import userStore from "../../stores/user";
   let closeSidebar = globalStore.toggleItem;
+
+  const { username } = $userStore;
 </script>
 
 <div class="sidebar-container" transition:fly={{ x: -1000 }}>
@@ -18,7 +21,9 @@
         <i class="fas fa-window-close" />
       </button>
     </div>
-
+    {#if username}
+      <h1>Bienvenido {username}!</h1>
+    {/if}
     <a href="/" use:link>
       <img class="logo sidebar-logo" src="/assets/images/logo.svg" alt="" />
     </a>
