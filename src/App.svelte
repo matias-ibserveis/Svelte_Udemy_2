@@ -33,5 +33,6 @@
   <Route path="/about" component={About} />
   <Route path="/login" component={Login} />
   <Route path="/products" component={Products} />
+  <Route path="/checkout" component={Checkout} />
   <Route path="/products/:id" component={ProductTemplate} />
 </Router>

@@ -1,5 +1,4 @@
 import {
-  serStorageUser,
   setUser,
   setStorageUser
 } from "../stores/user"

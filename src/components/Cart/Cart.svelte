@@ -27,7 +27,7 @@
       <div class="cart-footer">
         {#if $user.jwt}
           <a
-            href="/chekout"
+            href="/checkout"
             use:link
             class="btn btn-primary btn-block"
             on:click={() => {
