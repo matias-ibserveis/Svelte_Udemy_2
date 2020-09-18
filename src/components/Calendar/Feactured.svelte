@@ -2,7 +2,7 @@
   export let title = "";
 
   import products, {featuredStore} from "../../stores/products";
-  import Product from "./Product.svelte";
+  import Product from "./CalendarItem.svelte";
   import Loading from "../Loading.svelte";
   /* $: feactured = $products.filter((item) => item.featured === true); */
 </script>

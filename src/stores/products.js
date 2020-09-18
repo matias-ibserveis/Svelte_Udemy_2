@@ -4,6 +4,7 @@ import {
 } from "svelte/store";
 import URL from "../strapi/URL";
 import getProducts from "../strapi/getProducts"
+import localProducts from "../localProducts"
 const store = writable([], () => {
   setProducts()
   return () => {}

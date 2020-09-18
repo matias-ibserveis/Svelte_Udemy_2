@@ -2,7 +2,7 @@
   import user from "../stores/user";
   import { link } from "svelte-routing";
   import globalStore from "../stores/globalStore";
-  import {logoutUser} from "../stores/user"
+  import { logoutUser } from "../stores/user";
 </script>
 
 {#if $user.jwt}
@@ -10,10 +10,10 @@
     href="/"
     class="logout-btn"
     on:click={() => {
-      logoutUser()
+      logoutUser();
       globalStore.toggleItem('sidebar', false);
     }}>
-    Logout
+    <i class="fas fa-sign-in-alt" /> Logout
   </a>
 {:else}
   <a
@@ -21,7 +21,6 @@
     on:click={() => {
       globalStore.toggleItem('sidebar', false);
     }}>
-    Login
+    <i class="fas fa-sign-in-alt" /> Login
   </a>
 {/if}
-

@@ -6,38 +6,20 @@
   import { link } from "svelte-routing";
 
   import { addToCart } from "../stores/cart";
-
+  import calendar from "../stores/calendar";
   import globalStore from "../stores/globalStore";
 
-  $: product = $products.find((item) => item.id === parseInt(id));
+  $: calendario = $calendar.find((item) => item.id === id);
 </script>
 
 <svelte:head>
-  <title>{!product ? 'Cargando Producto...' : product.title}</title>
+  <!-- <title>{!product ? 'Cargando Producto...' : product.title}</title> -->
 </svelte:head>
-{#if !product}
+{#if !calendario}
   <Loading />
 {:else}
   <section class="single-product">
-
     <a href="/products" use:link class="btn btn-primary">Volver atras</a>
-    <div class="single-product-container">
-      <article class="single-product-image">
-        <img src={product.image} alt="" />
-      </article>
-      <article>
-        <h1>{product.title}</h1>
-        <h2>${product.price}</h2>
-        <p>{product.description}</p>
-        <button
-          class="btn btn-primary btn-block"
-          on:click={() => {
-            addToCart(id, product);
-            globalStore.toggleItem('cart', true);
-          }}>
-          Agregar al carrito
-        </button>
-      </article>
-    </div>
+    <div class="single-product-container">{calendario.diaHoy}</div>
   </section>
 {/if}

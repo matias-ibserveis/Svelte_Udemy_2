@@ -1,21 +1,23 @@
 <script>
+  import { afterUpdate, onMount } from "svelte";
   // pages
   import Login from "./pages/Login.svelte";
-  import Checkout from "./pages/Checkout.svelte";
   import ProductTemplate from "./pages/ProductTemplate.svelte";
   import Products from "./pages/Products.svelte";
   import Home from "./pages/Home.svelte";
-  import About from "./pages/About.svelte";
   // router
   import { Router, Route, Link } from "svelte-routing";
   // components
   import Navbar from "./components/Navbar/Navbar.svelte";
   import Sidebar from "./components/Navbar/Sidebar.svelte";
-  import Cart from "./components/Cart/Cart.svelte";
-
 
   import globalStore from "./stores/globalStore";
   import Alert from "./components/Alert.svelte";
+  import { rangeCalendar } from "./stores/calendar";
+
+  onMount(() => {
+    rangeCalendar($globalStore.año, $globalStore.mes, $globalStore.diaHoy);
+  });
 </script>
 
 <Router>
@@ -23,16 +25,11 @@
   {#if $globalStore.sidebar}
     <Sidebar />
   {/if}
-  {#if $globalStore.cart}
-    <Cart />
-  {/if}
   {#if $globalStore.alert}
     <Alert />
   {/if}
   <Route path="/" component={Home} />
-  <Route path="/about" component={About} />
   <Route path="/login" component={Login} />
   <Route path="/products" component={Products} />
-  <Route path="/checkout" component={Checkout} />
   <Route path="/products/:id" component={ProductTemplate} />
 </Router>
